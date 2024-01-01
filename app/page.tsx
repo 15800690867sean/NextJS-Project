@@ -15,11 +15,14 @@ export default function Home() {
         <li>
           <Link href={"/about"}>To about page</Link>
         </li>
+        <li>
+        <Link href={"/events"}>To events page</Link>
+        </li>
         {clients.map((client) => (
           <li key={client.id}>
             <Link
-              href={`/clients/${client.name}`}
-            >{`To Client ${client.name} page`}</Link>
+              href={`/events/${client.name}`}
+            >{`To event ${client.name} page`}</Link>
           </li>
         ))}
       </ul>
