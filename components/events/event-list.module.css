@@ -1,6 +1,7 @@
 .list {
-  margin: 0;
+  margin: 5rem auto;
   padding: 0;
-  width: 100%;
+  width: 90%;
+  max-width: 40rem;
   font-family:Georgia, 'Times New Roman', Times, serif;
 }
