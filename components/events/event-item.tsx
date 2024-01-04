@@ -1,7 +1,7 @@
 "use client";
 
 import { EventType } from "@/mockData";
-import Link from "next/link";
+import Button from "../ui/button";
 import React from "react";
 import styles from './event-item.module.css';
 
@@ -25,7 +25,7 @@ export default function EventItem(props: EventType) {
   return <li className={styles.item}>
     <img src={`/${image}`} alt={title} />
     <div>
-      <div>
+      <div className={styles.content}>
         <h2>{title}</h2>
         <div>
           <time>{humanReadableDate}</time>
@@ -35,7 +35,7 @@ export default function EventItem(props: EventType) {
         </div>
       </div>
       <div>
-        <Link href={exploreLink}>Explore Event</Link>
+        <Button link={exploreLink}>Explore event</Button>
       </div>
     </div>
   </li>;
