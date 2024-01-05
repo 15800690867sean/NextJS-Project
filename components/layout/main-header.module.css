@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(61, 61, 61);
+  padding: 1rem 3rem;
+  align-items: center;
+}
+
+.header a {
+  color: rgb(74, 210, 74);
+  text-shadow: 0.05rem 0.05rem rgb(20, 173, 20);
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.logo {
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.nav {
+  font-size: larger;
+}
+
+.nav li {
+  list-style-type: none;
+}
