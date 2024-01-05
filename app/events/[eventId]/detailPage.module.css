@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  background: linear-gradient(
+    rgb(161, 229, 161) 25%,
+    rgb(132, 236, 132) 40%,
+    white 41%
+  );
+  font-size: x-large;
+}
+
+.container h1 {
+  font-size: 3rem;
+  color: white;
+  margin-top: 5rem;
+  text-shadow: 0.1rem 0.1rem green;
+}
+
+.singleRoll {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.singleRoll svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.container .img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+  object-fit: cover;
+}
+
+.container .info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.container .details {
+  padding: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: rgb(41, 40, 40);
+  color: lightgreen;
+  border-radius: 8px;
+}
