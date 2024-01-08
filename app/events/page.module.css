@@ -1,0 +1,5 @@
+.allEventsPage {
+    background-color: rgb(133, 212, 133);
+    height: 100%;
+    overflow: scroll;
+}
