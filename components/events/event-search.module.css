@@ -1,0 +1,29 @@
+.form {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: white;
+  border-radius: 4px;
+  padding: 1rem;
+  width: fit-content;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+}
+
+.form .controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form .controls .control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form .controls .control select {
+    height: 2rem;
+    width: 10rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
