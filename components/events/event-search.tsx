@@ -4,7 +4,11 @@ import React, { FormEvent, MutableRefObject, useRef } from "react";
 import Button from "../ui/button";
 import styles from './event-search.module.css';
 
-export default function EventSearch() {
+interface IProps {
+    onSearch: (year: string, month: string) => void;
+}
+
+export default function EventSearch(props: IProps) {
     const yearInput = useRef();
     const monthInput = useRef();
 
@@ -13,6 +17,8 @@ export default function EventSearch() {
 
         const selectedYear = (yearInput.current as unknown as HTMLSelectElement).value;
         const selectedMonth = (monthInput.current as unknown as HTMLSelectElement).value;
+
+        props.onSearch(selectedYear, selectedMonth);
     };
     
   return (
