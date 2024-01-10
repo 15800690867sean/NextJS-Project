@@ -30,6 +30,12 @@
   margin-bottom: 1rem;
 }
 
+.item .infoBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .rol {
   display: flex;
   gap: 2px;

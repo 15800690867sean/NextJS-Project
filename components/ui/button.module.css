@@ -9,6 +9,7 @@
   text-align: center;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
   display: block;
+  width: fit-content;
 }
 
 .btn:hover,

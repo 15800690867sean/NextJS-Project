@@ -22,7 +22,7 @@ export default function EventItem(props: EventType) {
   return (
     <li className={styles.item}>
       <img src={`/${image}`} alt={title} />
-      <div>
+      <div className={styles.infoBlock}>
         <div className={styles.content}>
           <h2>{title}</h2>
           <div className={styles.rol}>
@@ -34,14 +34,12 @@ export default function EventItem(props: EventType) {
             <address>{location}</address>
           </div>
         </div>
-        <div>
-          <Button link={exploreLink}>
-            <div className={styles.rol}>
-              <span>Explore event</span>
-              <ArrowRightIcon />
-            </div>
-          </Button>
-        </div>
+        <Button link={exploreLink}>
+          <div className={styles.rol}>
+            <span>Explore event</span>
+            <ArrowRightIcon />
+          </div>
+        </Button>
       </div>
     </li>
   );
