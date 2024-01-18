@@ -10,7 +10,7 @@ import AddressIcon from "@/components/icons/address-icon";
 export default function EventDetailPage() {
   const params = useParams();
 
-  const { eventId } = params;
+  const { eventId } = params as Record<string, string | string[]>;
   const event = getEventById(eventId as string);
 
   if (!event) {

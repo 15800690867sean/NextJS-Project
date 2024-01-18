@@ -1,18 +1,18 @@
-import React from 'react'
+import React from "react";
 
-export default function User(props) {
+export default function User(props: { username: string }) {
   return (
     <div>
-        user page
-        <h1>{props.username}</h1>
+      user page
+      <h1>{props.username}</h1>
     </div>
-  )
+  );
 }
 
 export async function getServerSideProps() {
-    return {
-        props: {
-            username: 'Max'
-        }
-    }
+  return {
+    props: {
+      username: "Max",
+    },
+  };
 }

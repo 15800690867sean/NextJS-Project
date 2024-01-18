@@ -9,6 +9,9 @@ import Button from "@/components/ui/button";
 
 export default function FilteredEventsPage() {
   const params = useParams();
+  if (!params) {
+    return <p>Invalid Url.</p>;
+  }
   const filteredData = params.slug;
   const year = filteredData[0];
   const month = filteredData[1];
