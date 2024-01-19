@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+This project allow users to view all the publish events, and users can use the filter to find particular events.
+
+Core functions:
+- file-based routing
+- local data fetching
+- realtime data fetching
+- server/client data fetching
+- static page generation
+- server-side page generation
+
 ## Getting Started
 
 First, run the development server:
@@ -20,14 +30,11 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Versions
 
-To learn more about Next.js, take a look at the following resources:
+For version 1, all the data is fetched from the local mockData file. Because the version 1 is for exploring the routing capability of NextJS.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+For version 2, the data is fetched from the firebase realtime database. And the pages are static generated or server-side generated.
 
 ## Deploy on Vercel
 

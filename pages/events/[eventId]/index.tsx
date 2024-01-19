@@ -9,6 +9,9 @@ import AddressIcon from "@/components/icons/address-icon";
 
 export default function EventDetailPage() {
   const params = useParams();
+  if (!params) {
+    return <p>Loading...</p>
+  }
 
   const { eventId } = params as Record<string, string | string[]>;
   const event = getEventById(eventId as string);
