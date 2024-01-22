@@ -1,20 +1,25 @@
 "use client";
 
-import { getEventById } from "@/mockData";
+import { EventType, getEventById } from "@/mockData";
 import { useParams } from "next/navigation";
 import React from "react";
 import styles from "./detailPage.module.css";
 import DateIcon from "@/components/icons/date-icon";
 import AddressIcon from "@/components/icons/address-icon";
+import { getRealAllEvents, getRealEventById } from "@/utils/api";
 
-export default function EventDetailPage() {
-  const params = useParams();
-  if (!params) {
-    return <p>Loading...</p>
-  }
+export default function EventDetailPage(props: {
+  event: EventType;
+}) {
+  // const params = useParams();
+  // if (!params) {
+  //   return <p>Loading...</p>
+  // }
 
-  const { eventId } = params as Record<string, string | string[]>;
-  const event = getEventById(eventId as string);
+  // const { eventId } = params as Record<string, string | string[]>;
+  // const event = getEventById(eventId as string);
+
+  const { event } = props;
 
   if (!event) {
     return <p>No Event Found!</p>;
@@ -47,4 +52,27 @@ export default function EventDetailPage() {
       <p>{description}</p>
     </div>
   );
+}
+
+export async function getStaticProps(context: Record<string, any>) {
+  const { eventId } = context.params;
+  const event = await getRealEventById(eventId);
+  return {
+    props: {
+      event
+    }
+  }
+}
+
+export async function getStaticPaths() {
+  const allEvents = await getRealAllEvents();
+  const pathArr = allEvents.map((event) => {
+    return {
+      params: {eventId: event.id}
+    }
+  })
+  return {
+    paths: pathArr,
+    fallback: true,
+  }
 }

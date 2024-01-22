@@ -20,3 +20,8 @@ export async function getRealFeaturedEvents() {
     const allEvents = await getRealAllEvents();
     return allEvents.filter((event) => event.isFeatured);
 }
+
+export async function getRealEventById(id: string) {
+    const allEvents = await getRealAllEvents();
+    return allEvents.find((event) => event.id === id);
+  }
