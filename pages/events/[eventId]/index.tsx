@@ -60,7 +60,8 @@ export async function getStaticProps(context: Record<string, any>) {
   return {
     props: {
       event
-    }
+    },
+    revalidate: 30,
   }
 }
 
