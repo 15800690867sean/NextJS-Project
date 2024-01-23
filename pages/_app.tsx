@@ -10,7 +10,7 @@ export default function MyApp({
   pageProps: Record<string, any>,
 }) {
   return (
-    <div>
+    <div style={{height: '100vh', overflow: 'hidden'}}>
         <MainHeader />
         <Component {...pageProps}/>
     </div>

@@ -1,24 +1,17 @@
 "use client";
 
 import EventList from "@/components/events/event-list";
-import { getFilteredEvents } from "@/mockData";
-import { useParams } from "next/navigation";
+import { EventType } from "@/mockData";
 import styles from "./page.module.css";
 import React from "react";
 import Button from "@/components/ui/button";
+import { getRealFilteredEvents } from "@/utils/api";
 
-export default function FilteredEventsPage() {
-  const params = useParams();
-  if (!params) {
-    return <p>Invalid Url.</p>;
-  }
-  const filteredData = params.slug;
-  const year = filteredData[0];
-  const month = filteredData[1];
-  const numYear = +year;
-  const numMonth = +month;
-
-  if (isNaN(numYear) || isNaN(numMonth)) {
+export default function FilteredEventsPage(props: {
+  filteredEvents: EventType[];
+  hasError?: boolean;
+}) {
+  if (props.hasError) {
     return (
       <div className={styles.filteredPageContainer}>
         <h2>Invalid filter. Please adjust your values!</h2>
@@ -27,10 +20,7 @@ export default function FilteredEventsPage() {
     );
   }
 
-  const filteredEvents = getFilteredEvents({
-    year: numYear,
-    month: numMonth,
-  });
+  const { filteredEvents } = props;
 
   if (!filteredEvents || !filteredEvents.length) {
     return (
@@ -48,4 +38,33 @@ export default function FilteredEventsPage() {
       <EventList items={filteredEvents} />
     </div>
   );
+}
+
+export async function getServerSideProps(context: Record<string, any>) {
+  const { params } = context;
+  const filteredData = params.slug;
+
+  const year = filteredData[0];
+  const month = filteredData[1];
+  const numYear = +year;
+  const numMonth = +month;
+
+  if (isNaN(numYear) || isNaN(numMonth)) {
+    return {
+      props: {
+        hasError: true,
+      },
+    };
+  }
+
+  const filteredEvents = await getRealFilteredEvents({
+    year: numYear,
+    month: numMonth,
+  });
+
+  return {
+    props: {
+      filteredEvents,
+    },
+  };
 }
