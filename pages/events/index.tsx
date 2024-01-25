@@ -1,7 +1,7 @@
 "use client";
 
 import EventList from "@/components/events/event-list";
-import { EventType, getAllEvents } from "@/mockData";
+import { EventType } from "@/mockData";
 import React from "react";
 import styles from "./page.module.css";
 import EventSearch from "@/components/events/event-search";

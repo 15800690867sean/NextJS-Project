@@ -1,5 +1,6 @@
 import '@/app/styles/globals.css';
 import MainHeader from '@/components/layout/main-header';
+import { Metadata } from "next";
 
 export default function RootLayout({
   children,
@@ -14,4 +15,8 @@ export default function RootLayout({
       </body>
     </html>
   )
+}
+
+export const metadata: Metadata = {
+  title: "NextJS Events",
 }
