@@ -14,6 +14,10 @@ export default function MyApp({
     <div style={{height: '100vh', overflow: 'hidden'}}>
         <Head>
           <title>NextJS Events</title>
+          <meta
+            name='viewport'
+            content='initial-scale=1.0, width=device-width'
+          />
         </Head>
         <MainHeader />
         <Component {...pageProps}/>
