@@ -28,6 +28,20 @@ export default function HomePage() {
       headers: {
         'Content-Type': 'application/json',
       }
+    }).then((res) => {
+      console.log('rrrrrr', res)
+      const status = res.status;
+      switch (status) {
+        case 200:
+          alert('Feedback fetched!')
+          break;
+        case 201:
+          alert('Feedback submitted successfully!');
+          break;
+        default:
+          alert('Feedback submission failed! Try again.');
+          break;
+      }
     });
   }
 
