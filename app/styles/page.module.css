@@ -1,5 +1,24 @@
 .homepage {
-  background-color: mediumturquoise;
+  background: linear-gradient(rgb(139, 208, 205) 30%, white);
   height: 100%;
-  overflow: scroll;
+  /* overflow: scroll; */
+}
+
+.homepage .feedback {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 1rem;
+}
+
+.homepage .feedback label {
+  font-size: large;
+  font-weight: 600;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.homepage .feedback input {
+  height: 2rem;
+  border: none;
+  width: 40%;
 }

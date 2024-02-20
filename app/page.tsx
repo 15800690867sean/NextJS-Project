@@ -2,6 +2,7 @@
 
 import styles from "@/app/styles/page.module.css";
 import EventList from "@/components/events/event-list";
+import Button from "@/components/ui/button";
 import { EventType } from "@/mockData";
 import { getRealFeaturedEvents } from "@/utils/api";
 import { RefObject, useEffect, useRef, useState } from "react";
@@ -67,12 +68,12 @@ export default function HomePage() {
 
   return (
     <div className={styles.homepage}>
-      <label htmlFor="feedback">Feedback:</label>
-      <input type="text" id="feedback" ref={feedbackRef}/>
-      <button onClick={handleFeedback}>Submit Feedback</button>
-      {feedbacks.map((item) => {
-        return <span key={item}>++{item}++</span>
-      })}
+      <div className={styles.feedback}>
+        <label className={styles.label} htmlFor="feedback">Feedback:</label>
+        <input className={styles.input} type="text" id="feedback" ref={feedbackRef}/>
+        <Button onClick={handleFeedback}>Submit Feedback</Button>
+        <Button link="feedback">Show Feedbacks</Button>
+      </div>
       <EventList items={events}/>
     </div>
   );
