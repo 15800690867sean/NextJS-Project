@@ -1,7 +1,9 @@
 .homepage {
   background: linear-gradient(rgb(139, 208, 205) 30%, white);
   height: 100%;
-  /* overflow: scroll; */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .homepage .feedback {
@@ -21,4 +23,8 @@
   height: 2rem;
   border: none;
   width: 40%;
+}
+
+.homepage .list {
+  height: 80%;
 }

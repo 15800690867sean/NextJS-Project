@@ -1,7 +1,9 @@
 .list {
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding: 0;
   width: 90%;
+  height: 100%;
   max-width: 40rem;
   font-family:Georgia, 'Times New Roman', Times, serif;
+  overflow-y: scroll;
 }

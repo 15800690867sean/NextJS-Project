@@ -10,27 +10,13 @@ import { RefObject, useEffect, useRef, useState } from "react";
 // this page is using client-side data fetching, which is not good for SEO
 export default function HomePage() {
   const [events, setEvents] = useState<EventType[]>();
-  const [feedbacks, setFeedbacks] = useState([]);
   const feedbackRef = useRef() as RefObject<HTMLInputElement>;
 
   useEffect(() => {
     getRealFeaturedEvents().then((res) => {
       setEvents(res);
     });
-    getFeedbackList();
   }, []);
-
-  const getFeedbackList = () => {
-    fetch('/api/feedback').then((res) => {
-      console.log('response:', res);
-      return res.json();
-    }).then((data) => {
-      console.log('data:', data.data);
-      if (data.data) {
-        setFeedbacks(data.data);
-      }
-    })
-  }
 
   const handleFeedback = () => {
     const feedback = feedbackRef.current?.value;
@@ -58,7 +44,9 @@ export default function HomePage() {
           break;
       }
     }).finally(() => {
-      getFeedbackList();
+      if (feedbackRef.current) {
+        feedbackRef.current.value = '';
+      }
     });
   }
 
@@ -74,7 +62,9 @@ export default function HomePage() {
         <Button onClick={handleFeedback}>Submit Feedback</Button>
         <Button link="feedback">Show Feedbacks</Button>
       </div>
-      <EventList items={events}/>
+      <div className={styles.list}>
+        <EventList items={events}/>
+      </div>
     </div>
   );
 }

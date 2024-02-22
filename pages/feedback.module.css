@@ -1,0 +1,9 @@
+.feedbackItem {
+    height: 3rem;
+    padding-left: 3rem;
+    line-height: 3rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    font-weight: 600;
+    text-decoration: underline;
+}

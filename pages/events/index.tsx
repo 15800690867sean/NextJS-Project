@@ -23,7 +23,9 @@ export default function EventsPage(props: {
   return (
     <div className={styles.allEventsPage}>
       <EventSearch onSearch={findEventsHandler}/>
-      <EventList items={events} />
+      <div className={styles.list}>
+        <EventList items={events} />
+      </div>
     </div>
   );
 }

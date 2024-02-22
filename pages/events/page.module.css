@@ -1,9 +1,14 @@
 .allEventsPage {
     background-color: rgb(133, 212, 133);
     height: 100%;
-    overflow: scroll;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 1rem;
+}
+
+.allEventsPage .list {
+    height: 80%;
+    width: 100%;
 }
