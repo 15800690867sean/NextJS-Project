@@ -13,6 +13,12 @@
   margin: 1rem;
 }
 
+.homepage .registration {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .homepage .feedback label {
   font-size: large;
   font-weight: 600;

@@ -2,6 +2,7 @@
 
 import styles from "@/app/styles/page.module.css";
 import EventList from "@/components/events/event-list";
+import NewsletterRegistration from "@/components/input/newsletter-registration";
 import Button from "@/components/ui/button";
 import { EventType } from "@/mockData";
 import { getRealFeaturedEvents } from "@/utils/api";
@@ -56,11 +57,14 @@ export default function HomePage() {
 
   return (
     <div className={styles.homepage}>
-      <div className={styles.feedback}>
+      {/* <div className={styles.feedback}>
         <label className={styles.label} htmlFor="feedback">Feedback:</label>
         <input className={styles.input} type="text" id="feedback" ref={feedbackRef}/>
         <Button onClick={handleFeedback}>Submit Feedback</Button>
         <Button link="feedback">Show Feedbacks</Button>
+      </div> */}
+      <div className={styles.registration}>
+        <NewsletterRegistration />
       </div>
       <div className={styles.list}>
         <EventList items={events}/>

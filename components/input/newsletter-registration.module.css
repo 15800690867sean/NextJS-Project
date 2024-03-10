@@ -1,0 +1,22 @@
+.text {
+    margin: 1rem 0;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.button {
+  background-color: #02afa1;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #03be9f;
+  border-radius: 6px;
+  font-size: large;
+  color: #dafff7;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.input {
+  /* height: 2rem; */
+  padding: 0.5rem 1.5rem;
+  border: none;
+  font-size: large;
+}
