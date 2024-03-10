@@ -20,7 +20,9 @@ export default function MyApp({
           />
         </Head>
         <MainHeader />
-        <Component {...pageProps}/>
+        <div style={{ height: 'calc(100vh - 5rem)' }}>
+          <Component {...pageProps}/>
+        </div>
     </div>
   )
 }

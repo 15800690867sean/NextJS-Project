@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   background-color: rgb(61, 61, 61);
-  padding: 1rem 3rem;
+  padding: 0 3rem;
   align-items: center;
+  height: 5rem;
 }
 
 .header a {

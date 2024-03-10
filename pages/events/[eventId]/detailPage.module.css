@@ -1,14 +1,19 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  align-items: center;
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.container .event {
   background: linear-gradient(
     rgb(161, 229, 161) 25%,
     rgb(132, 236, 132) 40%,
     white 41%
   );
   font-size: x-large;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
 }
 
 .container h1 {

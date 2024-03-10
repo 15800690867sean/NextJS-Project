@@ -7,6 +7,7 @@ import styles from "./detailPage.module.css";
 import DateIcon from "@/components/icons/date-icon";
 import AddressIcon from "@/components/icons/address-icon";
 import { getRealAllEvents, getRealEventById } from "@/utils/api";
+import Comments from "@/components/input/comments";
 
 export default function EventDetailPage(props: {
   event: EventType;
@@ -35,21 +36,24 @@ export default function EventDetailPage(props: {
 
   return (
     <div className={styles.container}>
-      <h1>{title}</h1>
-      <div className={styles.details}>
-        <img className={styles.img} src={`/${image}`} alt={title} />
-        <div className={styles.info}>
-          <div className={styles.singleRoll}>
-            <DateIcon />
-            <time>{humanReadableDate}</time>
-          </div>
-          <div className={styles.singleRoll}>
-            <AddressIcon />
-            <address>{location}</address>
+      <div className={styles.event}>
+        <h1>{title}</h1>
+        <div className={styles.details}>
+          <img className={styles.img} src={`/${image}`} alt={title} />
+          <div className={styles.info}>
+            <div className={styles.singleRoll}>
+              <DateIcon />
+              <time>{humanReadableDate}</time>
+            </div>
+            <div className={styles.singleRoll}>
+              <AddressIcon />
+              <address>{location}</address>
+            </div>
           </div>
         </div>
+        <p>{description}</p>
       </div>
-      <p>{description}</p>
+      <Comments eventId={props.event.id}/>
     </div>
   );
 }
