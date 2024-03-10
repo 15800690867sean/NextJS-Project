@@ -1,7 +1,24 @@
-import React from 'react'
+import React from "react";
+import styles from "./comment-list.module.css";
 
-export default function CommentList() {
+interface IProps {
+  comments: {
+    comment: string;
+    name: string;
+    id: string;
+  }[];
+}
+
+export default function CommentList(props: IProps) {
+  console.log("111111", props);
   return (
-    <div>CommentList</div>
-  )
+    <div className={styles.container}>
+      {props.comments.map((comment) => (
+        <div className={styles.comment} key={comment.id}>
+          <div>{comment.comment}</div>
+          <p>By {comment.name}</p>
+        </div>
+      ))}
+    </div>
+  );
 }

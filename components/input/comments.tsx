@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NewComment from "./new-comment";
 import CommentList from "./comment-list";
 import styles from "./comments.module.css";
@@ -9,6 +9,17 @@ interface IProps {
 
 export default function Comments(props: IProps) {
   const [showComments, setShowComments] = useState(false);
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    if (showComments) {
+      fetch(`/api/comments/${props.eventId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setComments(data.comments);
+        });
+    }
+  }, [showComments]);
 
   const toggleCommentsHandler = () => {
     setShowComments((showComments) => !showComments);
@@ -38,7 +49,7 @@ export default function Comments(props: IProps) {
         {showComments ? "Hide" : "Show"} Comments
       </button>
       {showComments && <NewComment onAddComment={addCommentHandler} />}
-      {showComments && <CommentList />}
+      {showComments && <CommentList comments = {comments}/>}
     </div>
   );
 }

@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: large;
+  width: 60%;
+}
+
+.container .comment {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid gray;
+}
+
+.comment p {
+  font-style: italic;
+}
