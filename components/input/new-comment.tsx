@@ -5,7 +5,7 @@ interface IProps {
     onAddComment: (comment: {
         email: string;
         name: string;
-        comment: string;
+        text: string;
     }) => void;
 }
 
@@ -25,7 +25,7 @@ export default function NewComment(props: IProps) {
     props.onAddComment({
         email: enteredEmail,
         name: enteredName,
-        comment: enteredComment,
+        text: enteredComment,
     })
   };
 

@@ -3,19 +3,18 @@ import styles from "./comment-list.module.css";
 
 interface IProps {
   comments: {
-    comment: string;
+    text: string;
     name: string;
-    id: string;
+    _id: string;
   }[];
 }
 
 export default function CommentList(props: IProps) {
-  console.log("111111", props);
   return (
     <div className={styles.container}>
       {props.comments.map((comment) => (
-        <div className={styles.comment} key={comment.id}>
-          <div>{comment.comment}</div>
+        <div className={styles.comment} key={comment._id}>
+          <div>{comment.text}</div>
           <p>By {comment.name}</p>
         </div>
       ))}

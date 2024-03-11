@@ -28,7 +28,7 @@ export default function Comments(props: IProps) {
   const addCommentHandler = (comment: {
     email: string;
     name: string;
-    comment: string;
+    text: string;
   }) => {
     fetch(`/api/comments/${props.eventId}`, {
       method: "POST",
