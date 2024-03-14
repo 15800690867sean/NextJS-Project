@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-This project allow users to view all the publish events, and users can use the filter to find particular events.
+This project allow users to view all the publish events, and users can use the filter to find particular events. 
 
 Core functions:
 - file-based routing
