@@ -3,7 +3,14 @@ import { connectToMongoDB } from "../newsletter";
 async function handler(req: Record<string, any>, res: Record<string, any>) {
   const { eventId } = req.query;
 
-  const client = await connectToMongoDB("events");
+  let client;
+
+  try {
+    client = await connectToMongoDB("events");
+  } catch (error) {
+    res.status(500).json({message: 'Connecting to the database failed!'});
+    return;
+  }
 
   const db = client.db();
 
@@ -31,7 +38,13 @@ async function handler(req: Record<string, any>, res: Record<string, any>) {
         eventId,
       };
 
-      const resp = await db.collection("comments").insertOne(newComment);
+      let resp;
+      try {
+        resp = await db.collection("comments").insertOne(newComment);
+      } catch (error) {
+        res.status(500).json({message: 'Inserting data failed!'});
+        return;
+      }
 
       newComment.id = resp.insertedId.toString();
 
