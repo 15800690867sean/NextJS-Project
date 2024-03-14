@@ -3,16 +3,31 @@
 import EventList from "@/components/events/event-list";
 import { EventType } from "@/mockData";
 import styles from "./page.module.css";
-import React from "react";
+import React, { useState } from "react";
 import Button from "@/components/ui/button";
 import { getRealFilteredEvents } from "@/utils/api";
 import Head from "next/head";
+import { useParams } from "next/navigation";
 
 export default function FilteredEventsPage(props: {
   filteredEvents: EventType[];
   hasError?: boolean;
 }) {
-  if (props.hasError) {
+  const params = useParams();
+  const [filteredEvents, setFilteredEvents] = useState([] as EventType[]);
+
+  if (!params) {
+    return;
+  }
+
+  const filteredData = params.slug;
+
+  const year = filteredData[0];
+  const month = filteredData[1];
+  const numYear = +year;
+  const numMonth = +month;
+
+  if (isNaN(numYear) || isNaN(numMonth)) {
     return (
       <div className={styles.filteredPageContainer}>
         <h2>Invalid filter. Please adjust your values!</h2>
@@ -21,7 +36,13 @@ export default function FilteredEventsPage(props: {
     );
   }
 
-  const { filteredEvents } = props;
+  getRealFilteredEvents({
+    year: numYear,
+    month: numMonth,
+  }).then(data => {
+    setFilteredEvents(data);
+  });
+
   let pageHeadData = <Head>
     <title>
       Filtered Events
@@ -60,33 +81,4 @@ export default function FilteredEventsPage(props: {
       <EventList items={filteredEvents} />
     </div>
   );
-}
-
-export async function getServerSideProps(context: Record<string, any>) {
-  const { params } = context;
-  const filteredData = params.slug;
-
-  const year = filteredData[0];
-  const month = filteredData[1];
-  const numYear = +year;
-  const numMonth = +month;
-
-  if (isNaN(numYear) || isNaN(numMonth)) {
-    return {
-      props: {
-        hasError: true,
-      },
-    };
-  }
-
-  const filteredEvents = await getRealFilteredEvents({
-    year: numYear,
-    month: numMonth,
-  });
-
-  return {
-    props: {
-      filteredEvents,
-    },
-  };
 }
